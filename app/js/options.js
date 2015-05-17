@@ -10,9 +10,6 @@ $(function () {
                 JSON.parse(localStorage.rules).forEach(function(rule) {
                     rule.id = model.nextRuleId++;
                     model.rules.push(ko.mapping.fromJS(rule));
-                    if (model.nextRuleId < rule.id) {
-                        model.nextRuleId = rule.id;
-                    }
                 });
             } catch (e) {
                 localStorage.rules = '[]';
