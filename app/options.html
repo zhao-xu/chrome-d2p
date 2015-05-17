@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>d2p options</title>
+    <link rel="stylesheet" href="libs/bootstrap-3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="libs/awesome-bootstrap-checkbox.css">
+    <link rel="stylesheet" href="css/options.css">
+</head>
+<body>
+<div class="container">
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th colspan="6" class="text-center">
+                <h3>d2p Options</h3>
+            </th>
+        </tr>
+        </thead>
+        <tbody id="rules" data-bind="foreach: rules">
+        <tr>
+            <td class="col-md-1">
+            <span class="btn-group">
+                <span class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-chevron-up"></span>
+                </span>
+                <span class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </span>
+            </span>
+            </td>
+            <td class="col-md-1">
+                <label class="pull-right">regex</label>
+            </td>
+            <td class="col-md-3">
+                <input type="text" class="form-control" data-bind="value: value, enable: !disabled()">
+            </td>
+            <td class="col-md-1">
+                <label class="pull-right">save to</label>
+            </td>
+            <td class="col-md-2">
+                <input type="text" class="form-control" data-bind="value: path, enable: !disabled()">
+            </td>
+            <td>
+                <div class="checkbox checkbox-danger checkbox-inline">
+                    <input type="checkbox" data-bind="checked: disabled, attr:{id: 'd2p-rdi-' + id()}">
+                    <label data-bind="attr:{for: 'd2p-rdi-' + id()}">Disabled</label>
+                </div>
+                <div class="checkbox checkbox-success checkbox-inline">
+                    <input type="checkbox" data-bind="checked: stopOnMatch, attr:{id: 'd2p-rsi-' + id()}">
+                    <label data-bind="attr:{for: 'd2p-rsi-' + id()}">Stop on Match</label>
+                </div>
+                <button class="btn btn-danger btn-sm pull-right" data-bind="click: $root.deleteRule">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <span class="btn btn-success" data-bind="click: addRule"><span class="glyphicon glyphicon-plus"></span></span>
+    <span class="btn btn-primary" data-bind="click: saveRules"><span class="glyphicon glyphicon-ok"></span></span>
+    <span data-bind="text: status" class="text-primary"></span>
+    <span class="btn btn-danger pull-right" data-bind="click: loadRules">Reload</span>
+</div>
+<script src="libs/jquery-1.11.3.min.js"></script>
+<script src="libs/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+<script src="libs/knockout-3.3.0.js"></script>
+<script src="libs/knockout-secure-binding.min.js"></script>
+<script src="libs/knockout.mapping.js"></script>
+<script src="js/rule.js"></script>
+<script src="js/options.js"></script>
+</body>
+</html>

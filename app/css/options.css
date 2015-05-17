@@ -1,0 +1,6 @@
+.table tbody>tr>td {
+    vertical-align: middle;
+}
+.checkbox.checkbox-inline {
+    margin-top: 6px;
+}

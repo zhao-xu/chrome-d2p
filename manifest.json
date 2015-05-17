@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+
+    "name": "d2f",
+    "description": "Download to path. Save files into separate folder base on regular expression.",
+    "version": "0.1",
+
+    "background": {
+        "persistent": false,
+        "scripts": [
+            "app/js/background.js"
+        ]
+    },
+
+    "options_page": "app/options.html",
+
+    "permissions": [
+        "downloads"
+    ]
+}
