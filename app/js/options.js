@@ -1,6 +1,5 @@
-var model;
-$(function () {
-    model = {
+(function () {
+    var model = {
         nextRuleId: 0,
         rules: ko.observableArray(),
         status: ko.observable(),
@@ -12,7 +11,7 @@ $(function () {
                     model.rules.push(ko.mapping.fromJS(rule));
                 });
             } catch (e) {
-                localStorage.rules = '[]';
+                console.log(e);
             }
         },
         addRule: function () {
@@ -29,16 +28,17 @@ $(function () {
             model.rules.remove(rule);
         }
     };
-    var options = {
+
+    ko.bindingProvider.instance = new ko.secureBindingsProvider({
         attribute: "data-bind",
         globals: window,
         bindings: ko.bindingHandlers,
         noVirtualElements: false
-    };
-    ko.bindingProvider.instance = new ko.secureBindingsProvider(options);
+    });
     ko.applyBindings(model);
+
     model.loadRules();
     if (model.rules().length === 0) {
         model.addRule();
     }
-});
+})();
