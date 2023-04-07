@@ -4,7 +4,7 @@ function onDeterminingFilename(downloadItem, suggest) {
             return;
         }
         if ('regex' === rule.type) {
-            if (rule.path && new RegExp(rule.value, 'i').test(downloadItem.referrer + downloadItem.filename)) {
+            if (rule.path && new RegExp(rule.value, 'i').test(downloadItem.url + downloadItem.filename)) {
                 result.path = rule.path + '/' + result.path;
                 if (rule.stopOnMatch) {
                     return true;
@@ -12,7 +12,6 @@ function onDeterminingFilename(downloadItem, suggest) {
             }
         }
     }
-    console.log(JSON.stringify(downloadItem));
     var rules;
     try {
         rules = JSON.parse(localStorage.rules);
