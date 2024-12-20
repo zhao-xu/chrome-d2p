@@ -1,0 +1,8 @@
+.main-body {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+nz-table tr th:nth-of-type(4),
+nz-table tr td:nth-of-type(4) {
+    text-align: center;
+}

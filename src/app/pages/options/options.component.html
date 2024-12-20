@@ -1,0 +1,34 @@
+<div class="main-body">
+    <nz-card nzBorderless>
+        <div>d2p Options</div>
+        <p></p>
+        <nz-table nzTemplateMode nzBordered>
+            <thead>
+            <tr>
+                <th></th>
+                <th>Matcher (regex)</th>
+                <th>Save to</th>
+                <th style="width: 70px">Disabled</th>
+                <th style="width: 32px"></th>
+            </tr>
+            </thead>
+            <tbody>
+            @for (r of rules(); track r) {
+                <tr>
+                    <td></td>
+                    <td><input nz-input [(ngModel)]="r.value"></td>
+                    <td><input nz-input [(ngModel)]="r.path"></td>
+                    <td>
+                        <label nz-checkbox [(ngModel)]="r.disabled"></label>
+                    </td>
+                    <td>
+                        <button nz-button nzType="default" nzDanger>
+                            <span nz-icon nzType="delete" nzTheme="outline"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </nz-table>
+    </nz-card>
+</div>

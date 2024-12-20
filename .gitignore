@@ -1,4 +1,26 @@
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# IDEs and editors
 .idea
-*.iml
+
+# System files
 .DS_Store
 Thumbs.db
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# Node
+/node_modules
+npm-debug.log
+package-lock.json
