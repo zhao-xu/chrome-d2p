@@ -10,7 +10,6 @@ import {Rule} from '../rule';
 
 @Component({
     selector: 'app-options',
-    standalone: true,
     templateUrl: './options.component.html',
     styleUrl: './options.component.css',
     imports: [
