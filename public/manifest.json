@@ -1,10 +1,13 @@
 {
     "manifest_version": 3,
 
-    "name": "d2p-test",
+    "name": "d2p",
     "description": "Download to path. Save files into separate folder base on regular expression.",
     "version": "0.1",
 
+    "background": {
+        "service_worker": "background.js"
+    },
     "options_page": "index.html#/options",
 
     "permissions": [

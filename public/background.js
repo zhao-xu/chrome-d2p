@@ -1,15 +1,12 @@
 function testRule(downloadItem, rule, result) {
-    if (rule.disabled) {
+    if (rule.disabled || !rule.value || !rule.path) {
         return;
     }
-    if ('regex' === rule.type) {
-        if (rule.path && new RegExp(rule.value, 'i').test(downloadItem.url + downloadItem.filename)) {
-            result.path = rule.path + '/' + result.path;
-            if (rule.stopOnMatch) {
-                return true;
-            }
-        }
+    if (new RegExp(rule.value, 'i').test(downloadItem.url + downloadItem.filename)) {
+        result.path = rule.path + '/' + result.path;
+        return true;
     }
+    return false;
 }
 
 chrome.downloads.onDeterminingFilename.addListener((downloadItem, suggest) => {
