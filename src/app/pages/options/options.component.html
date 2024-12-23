@@ -1,34 +1,43 @@
 <div class="main-body">
-    <nz-card nzBorderless>
+    <nz-card [nzBordered]="false">
         <div>d2p Options</div>
         <p></p>
-        <nz-table nzTemplateMode nzBordered>
+        <nz-table nzTemplateMode nzOuterBordered nzSize="small">
             <thead>
             <tr>
-                <th></th>
-                <th>Matcher (regex)</th>
-                <th>Save to</th>
-                <th style="width: 70px">Disabled</th>
                 <th style="width: 32px"></th>
+                <th style="width: 300px">Pattern (regex)</th>
+                <th style="width: 200px">Save to</th>
+                <th style="width: 110px"></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
             @for (r of rules(); track r) {
-                <tr>
+                <tr [class.disabled]="r.disabled">
                     <td></td>
                     <td><input nz-input [(ngModel)]="r.value"></td>
                     <td><input nz-input [(ngModel)]="r.path"></td>
+                    <td><label nz-checkbox [(ngModel)]="r.disabled">disabled</label></td>
                     <td>
-                        <label nz-checkbox [(ngModel)]="r.disabled"></label>
-                    </td>
-                    <td>
-                        <button nz-button nzType="default" nzDanger>
-                            <span nz-icon nzType="delete" nzTheme="outline"></span>
+                        <button nz-button nzType="text" nzDanger (click)="deleteRule(r)">
+                            <span nz-icon nzType="close" nzTheme="outline"></span>
                         </button>
                     </td>
                 </tr>
             }
             </tbody>
         </nz-table>
+        <p></p>
+        <div>
+            <button nz-button nzType="default" (click)="addRule()">
+                <span nz-icon nzType="plus" nzTheme="outline"></span>
+                Add Rule
+            </button>
+            <button nz-button nzType="primary" (click)="saveRules()">
+                <span nz-icon nzType="save" nzTheme="outline"></span>
+                Save Rules
+            </button>
+        </div>
     </nz-card>
 </div>

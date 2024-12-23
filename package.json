@@ -5,7 +5,8 @@
         "ng": "ng",
         "start": "ng serve --no-live-reload",
         "build": "ng build",
-        "build:prod": "ng build --configuration production"
+        "build:prod": "ng build --configuration production",
+        "build:dev": "ng build --configuration development"
     },
     "private": true,
     "dependencies": {
