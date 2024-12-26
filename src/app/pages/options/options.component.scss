@@ -12,9 +12,16 @@ nz-table {
                 background-color: #eeeeee;
             }
         }
+        tr td:first-of-type {
+            text-align: right;
+        }
     }
 }
 
 [nz-button] {
     margin-right: 16px;
+}
+
+[cdkDragHandle] {
+    cursor: move;
 }

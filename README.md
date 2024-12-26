@@ -11,7 +11,6 @@
 ** 是否能够自动创建子目录尚不确定，先玩几天再说 **  
 
 ## TODO
-调整顺序尚未实现，angular cdk \
 `background.js` 用 angular 实现，暂未找到合适的方式
 
 ## 使用方法
@@ -19,6 +18,9 @@
 2. chrome 从 `dist/d2p/browser` 目录加载插件
 
 ## History
+- 2024-12-26 \
+拖动改变顺序
+
 - 2024-12-23 \
 修改为 angular
 

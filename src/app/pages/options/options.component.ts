@@ -1,3 +1,4 @@
+import {CdkDrag, CdkDragDrop, CdkDragHandle, CdkDropList, moveItemInArray} from '@angular/cdk/drag-drop';
 import {Component, signal} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NzButtonModule} from 'ng-zorro-antd/button';
@@ -14,12 +15,8 @@ import {Rule} from '../rule';
     styleUrl: './options.component.scss',
     imports: [
         FormsModule,
-        NzTableModule,
-        NzCardModule,
-        NzInputModule,
-        NzButtonModule,
-        NzIconModule,
-        NzCheckboxModule
+        NzTableModule, NzCardModule, NzInputModule, NzButtonModule, NzIconModule, NzCheckboxModule,
+        CdkDropList, CdkDrag, CdkDragHandle
     ]
 })
 export class OptionsComponent {
@@ -75,5 +72,10 @@ export class OptionsComponent {
             localStorage.setItem('rules', JSON.stringify(rules));
             this.loadRules();
         }
+
+    }
+
+    dragDrop(event: CdkDragDrop<string[]>) {
+        moveItemInArray(this.rules(), event.previousIndex, event.currentIndex);
     }
 }

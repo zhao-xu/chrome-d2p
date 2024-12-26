@@ -5,17 +5,17 @@
         <nz-table nzTemplateMode nzOuterBordered nzSize="small">
             <thead>
             <tr>
-                <th style="width: 32px"></th>
+                <th style="width: 40px"></th>
                 <th style="width: 300px">Pattern (regex)</th>
                 <th style="width: 200px">Save to</th>
                 <th style="width: 110px"></th>
                 <th></th>
             </tr>
             </thead>
-            <tbody>
+            <tbody cdkDropList (cdkDropListDropped)="dragDrop($event)">
             @for (r of rules(); track r) {
-                <tr [class.disabled]="r.disabled">
-                    <td></td>
+                <tr [class.disabled]="r.disabled" cdkDrag>
+                    <td><nz-icon nzType="menu" nzTheme="outline" cdkDragHandle /></td>
                     <td><input nz-input [(ngModel)]="r.value"></td>
                     <td><input nz-input [(ngModel)]="r.path"></td>
                     <td><label nz-checkbox [(ngModel)]="r.disabled">disabled</label></td>
